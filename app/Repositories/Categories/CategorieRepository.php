@@ -1,20 +1,20 @@
 <?php
 
-namespace App\Repositories\Users;
+namespace App\Repositories\Categories;
 
-use App\User;
-
-class EloquentUser implements UserRepository
+use App\Repositories\Categories\Categorie;
+use App\Repositories\BaseRepository;
+class CategorieRepository implements BaseRepository
 {
     /**
-     * @var User
+     * @var Categorie
      */
     private $model;
     /**
      * EloquentUser constructor.
-     * @param User $model
+     * @param Categorie $model
      */
-    public function __construct(User $model)
+    public function __construct(Categorie $model)
     {
         $this->model = $model;
     }
@@ -40,5 +40,8 @@ class EloquentUser implements UserRepository
     {
         $this->getById($id)->delete();
         return true;
+    }
+    public function paginate(){
+      return $this->model->paginate();
     }
 }

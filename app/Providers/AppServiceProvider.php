@@ -4,8 +4,6 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
-use App\Repositorie\Users\EloquentUser;
-use App\Repositorie\Users\UserRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(UserRepository::class, EloquentUser::class);
+      
     }
 
     /**
@@ -26,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191); 
+        Schema::defaultStringLength(191);
     }
 }

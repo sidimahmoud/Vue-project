@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Repositories\Users;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,7 +9,10 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    const TYPE = [
+        'ADMIN' => 1,
+        'MEMBER' => 2,
+    ];
     /**
      * The attributes that are mass assignable.
      *
