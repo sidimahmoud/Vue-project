@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::resource('users', 'UserController');
-Route::resource('categories', 'CategorieController');
+Route::middleware('cors')->group(function(){
+  Route::resource('users', 'UserController');
+  Route::resource('categories', 'CategorieController');
+  Route::resource('cars', 'CarsController');
+});

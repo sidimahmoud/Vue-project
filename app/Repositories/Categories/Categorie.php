@@ -3,7 +3,7 @@
 namespace App\Repositories\Categories;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Repositories\Cars\Car;
 class Categorie extends Model
 {
     //categorie
@@ -15,4 +15,11 @@ class Categorie extends Model
     protected $fillable = [
         'categorie'
     ];
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\hasMany
+     */
+    public function cars()
+    {
+        return $this->hasMany(Car::class);
+    }
 }
